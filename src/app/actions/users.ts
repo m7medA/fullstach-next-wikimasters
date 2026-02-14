@@ -1,8 +1,9 @@
 "use server";
 
-import { PrismaPg } from "@prisma/adapter-pg";
 import "dotenv/config";
-import { PrismaClient } from "../../../prisma/src/app/generated/prisma/client";
+import { PrismaPg } from "@prisma/adapter-pg";
+import { PrismaClient } from "../generated/prisma/client";
+
 import { makeHash } from "@/lib/utils";
 
 export type User = {
@@ -12,9 +13,9 @@ export type User = {
   imageUrl?: string;
 };
 
-const adapter = new PrismaPg({
-  connectionString: process.env.DATABASE_URL,
-});
+const connectionString = `${process.env.DATABASE_URL}`;
+
+const adapter = new PrismaPg({ connectionString });
 const prisma = new PrismaClient({ adapter });
 
 export async function signUpUser(data: User) {

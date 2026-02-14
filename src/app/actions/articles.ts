@@ -1,7 +1,8 @@
 "use server";
-import { PrismaPg } from "@prisma/adapter-pg";
+
 import "dotenv/config";
-import { PrismaClient } from "../../../prisma/src/app/generated/prisma/client";
+import { PrismaPg } from "@prisma/adapter-pg";
+import { PrismaClient } from "../generated/prisma/client";
 
 import { getServerSession } from "next-auth";
 import { authOptions } from "../api/auth/[...nextauth]/route";
@@ -20,9 +21,9 @@ export type UpdateArticleInput = {
   imageUrl?: string;
 };
 
-const adapter = new PrismaPg({
-  connectionString: process.env.DATABASE_URL,
-});
+const connectionString = `${process.env.DATABASE_URL}`;
+
+const adapter = new PrismaPg({ connectionString });
 const prisma = new PrismaClient({ adapter });
 
 export async function createArticle(data: CreateArticleInput) {
