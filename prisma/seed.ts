@@ -2644,6 +2644,7 @@ Test code is product code. Treat it with the same respect.`,
         .replace(/[^a-z0-9]+/g, "-")
         .replace(/(^-|-$)/g, ""),
       content: article.content,
+      summary: "",
       imageUrl: null,
       count: 100 + i,
       published: true,
