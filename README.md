@@ -1,4 +1,4 @@
-## Overview
+# Overview
 
 WIKIMASTERS IS A Fullstack Article Publishing Platform built with **Next.js (App Router)**.
 
@@ -22,7 +22,7 @@ but I intentionally replaced the core tools to avoid “just following along”.
 
 ---
 
-# 🧨 Leveling Up the Difficulty
+## 🧨 Leveling Up the Difficulty
 
 Instead of copying the instructor’s stack, I swapped it with more advanced tools:
 
@@ -42,22 +42,22 @@ Because I wanted to:
 
 ---
 
-# Tech Stack
+## Tech Stack
 
-## Framework
+### Framework
 
 - Next.js (App Router – Fullstack Mode)
 - Server Components
 - Server Actions
 
-## Authentication & Authorization
+### Authentication & Authorization
 
 - NextAuth
 - Secure sessions
 - Protected routes
 - Ownership-based permissions (users edit only their articles)
 
-## Database
+### Database
 
 - Neon (Serverless PostgreSQL)
 - Prisma ORM
@@ -65,19 +65,19 @@ Because I wanted to:
 - Migrations
 - Type-safe queries
 
-## Caching
+### Caching
 
 - Upstash Redis
 - Cache-first homepage strategy
 - TTL handling
 - Reduced database load
 
-## 🤖 AI Integration
+### 🤖 AI Integration
 
 - LangChain
 - Google Gemini
 
-### Flow:
+#### Flow:
 
 1. User writes article
 2. AI generates a summary
@@ -92,9 +92,9 @@ Because I wanted to:
 
 ---
 
-# ✨ Features
+## ✨ Features
 
-## 👤 User System
+### 👤 User System
 
 - Register
 - Login
@@ -102,7 +102,7 @@ Because I wanted to:
 - Route protection
 - Authorization rules
 
-## Article System
+### Article System
 
 - Create article
 - Edit own articles
@@ -110,7 +110,7 @@ Because I wanted to:
 - View counter
 - AI-generated summary
 
-## Performance Optimization
+### Performance Optimization
 
 - Redis caching layer
 - Reduced DB round-trips
@@ -118,7 +118,7 @@ Because I wanted to:
 
 ---
 
-# What This Project Demonstrates
+## What This Project Demonstrates
 
 This is not just CRUD.
 
