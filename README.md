@@ -1,36 +1,133 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Overview
 
-## Getting Started
+WIKIMASTERS IS A Fullstack Article Publishing Platform built with **Next.js (App Router)**.
 
-First, run the development server:
+Users can:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Browse public articles
+- Register & Login securely
+- Create and edit their own articles
+- View other users’ content
+- Get AI-generated summaries
+- Receive email notifications when their article reaches a view threshold
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+This project started from a [Frontend Masters course](https://frontendmasters.com/courses/fullstack-app-next-v4).
+but I intentionally replaced the core tools to avoid “just following along”.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🔴 Live Demo
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- [WIKIMASTERS](https://fullstack-next-wikimasters.vercel.app/)
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# 🧨 Leveling Up the Difficulty
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Instead of copying the instructor’s stack, I swapped it with more advanced tools:
 
-## Deploy on Vercel
+| Course Stack  | My Stack           |
+| ------------- | ------------------ |
+| Drizzle ORM   | Prisma             |
+| Stytch Auth   | NextAuth           |
+| Vercel AI SDK | LangChain + Gemini |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Why?
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Because I wanted to:
+
+- Make architectural decisions myself
+- Understand trade-offs
+- Go beyond tutorial-level implementation
+
+---
+
+# Tech Stack
+
+## Framework
+
+- Next.js (App Router – Fullstack Mode)
+- Server Components
+- Server Actions
+
+## Authentication & Authorization
+
+- NextAuth
+- Secure sessions
+- Protected routes
+- Ownership-based permissions (users edit only their articles)
+
+## Database
+
+- Neon (Serverless PostgreSQL)
+- Prisma ORM
+- Relational modeling
+- Migrations
+- Type-safe queries
+
+## Caching
+
+- Upstash Redis
+- Cache-first homepage strategy
+- TTL handling
+- Reduced database load
+
+## 🤖 AI Integration
+
+- LangChain
+- Google Gemini
+
+### Flow:
+
+1. User writes article
+2. AI generates a summary
+3. Summary is stored
+4. Displayed in public feed
+
+## 📧 Email Notifications
+
+- Resend API
+- When article views exceed threshold (e.g. 10 views)
+- Automatic email sent to author
+
+---
+
+# ✨ Features
+
+## 👤 User System
+
+- Register
+- Login
+- Session management
+- Route protection
+- Authorization rules
+
+## Article System
+
+- Create article
+- Edit own articles
+- Public listing
+- View counter
+- AI-generated summary
+
+## Performance Optimization
+
+- Redis caching layer
+- Reduced DB round-trips
+- Faster homepage load
+
+---
+
+# What This Project Demonstrates
+
+This is not just CRUD.
+
+It demonstrates:
+
+- Fullstack architecture thinking
+- Authentication vs Authorization understanding
+- ORM schema design
+- Caching strategies
+- AI integration beyond SDK abstraction
+- Event-driven backend logic
+- Production-oriented mindset
