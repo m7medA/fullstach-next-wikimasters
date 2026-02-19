@@ -1,7 +1,15 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  images: { remotePatterns: [new URL(`${process.env.BLOB_BASE_URL}/**`)] },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "79zdyoak4aokhqdx.public.blob.vercel-storage.com",
+        pathname: "/**",
+      },
+    ],
+  },
 };
 
 export default nextConfig;

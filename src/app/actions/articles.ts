@@ -37,7 +37,8 @@ export async function createArticle(data: CreateArticleInput) {
 
   console.log("Article created.", data);
 
-  const summary = await summarizeArticle(data.title || "", data.content || "");
+  const summary =
+    (await summarizeArticle(data.title || "", data.content || "")) || "";
 
   await prisma.article.create({
     data: {
@@ -68,7 +69,8 @@ export async function updateArticle(id: string, data: UpdateArticleInput) {
   if (!(await authorizeUserToEditArticle(session?.user.id, id)))
     throw new Error("❌ Forbidden");
 
-  const summary = await summarizeArticle(data.title || "", data.content || "");
+  const summary =
+    (await summarizeArticle(data.title || "", data.content || "")) || "";
 
   try {
     await prisma.article.update({
