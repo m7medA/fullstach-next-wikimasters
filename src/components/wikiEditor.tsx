@@ -99,7 +99,7 @@ export default function WikiEditor({
       const payload = {
         title: title.trim(),
         content: content.trim(),
-        authorId: `${session?.user?.id}`, // TODO: wire real user id
+        authorId: `${session?.user.id}`, // TODO: wire real user id
         imageUrl,
       };
 

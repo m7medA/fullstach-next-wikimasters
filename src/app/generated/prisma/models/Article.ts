@@ -43,6 +43,7 @@ export type ArticleMinAggregateOutputType = {
   title: string | null
   slug: string | null
   content: string | null
+  summary: string | null
   imageUrl: string | null
   count: number | null
   published: boolean | null
@@ -57,6 +58,7 @@ export type ArticleMaxAggregateOutputType = {
   title: string | null
   slug: string | null
   content: string | null
+  summary: string | null
   imageUrl: string | null
   count: number | null
   published: boolean | null
@@ -71,6 +73,7 @@ export type ArticleCountAggregateOutputType = {
   title: number
   slug: number
   content: number
+  summary: number
   imageUrl: number
   count: number
   published: number
@@ -99,6 +102,7 @@ export type ArticleMinAggregateInputType = {
   title?: true
   slug?: true
   content?: true
+  summary?: true
   imageUrl?: true
   count?: true
   published?: true
@@ -113,6 +117,7 @@ export type ArticleMaxAggregateInputType = {
   title?: true
   slug?: true
   content?: true
+  summary?: true
   imageUrl?: true
   count?: true
   published?: true
@@ -127,6 +132,7 @@ export type ArticleCountAggregateInputType = {
   title?: true
   slug?: true
   content?: true
+  summary?: true
   imageUrl?: true
   count?: true
   published?: true
@@ -228,6 +234,7 @@ export type ArticleGroupByOutputType = {
   title: string
   slug: string
   content: string
+  summary: string
   imageUrl: string | null
   count: number
   published: boolean
@@ -265,6 +272,7 @@ export type ArticleWhereInput = {
   title?: Prisma.StringFilter<"Article"> | string
   slug?: Prisma.StringFilter<"Article"> | string
   content?: Prisma.StringFilter<"Article"> | string
+  summary?: Prisma.StringFilter<"Article"> | string
   imageUrl?: Prisma.StringNullableFilter<"Article"> | string | null
   count?: Prisma.IntFilter<"Article"> | number
   published?: Prisma.BoolFilter<"Article"> | boolean
@@ -280,6 +288,7 @@ export type ArticleOrderByWithRelationInput = {
   title?: Prisma.SortOrder
   slug?: Prisma.SortOrder
   content?: Prisma.SortOrder
+  summary?: Prisma.SortOrder
   imageUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   count?: Prisma.SortOrder
   published?: Prisma.SortOrder
@@ -298,6 +307,7 @@ export type ArticleWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.ArticleWhereInput | Prisma.ArticleWhereInput[]
   title?: Prisma.StringFilter<"Article"> | string
   content?: Prisma.StringFilter<"Article"> | string
+  summary?: Prisma.StringFilter<"Article"> | string
   imageUrl?: Prisma.StringNullableFilter<"Article"> | string | null
   count?: Prisma.IntFilter<"Article"> | number
   published?: Prisma.BoolFilter<"Article"> | boolean
@@ -313,6 +323,7 @@ export type ArticleOrderByWithAggregationInput = {
   title?: Prisma.SortOrder
   slug?: Prisma.SortOrder
   content?: Prisma.SortOrder
+  summary?: Prisma.SortOrder
   imageUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   count?: Prisma.SortOrder
   published?: Prisma.SortOrder
@@ -335,6 +346,7 @@ export type ArticleScalarWhereWithAggregatesInput = {
   title?: Prisma.StringWithAggregatesFilter<"Article"> | string
   slug?: Prisma.StringWithAggregatesFilter<"Article"> | string
   content?: Prisma.StringWithAggregatesFilter<"Article"> | string
+  summary?: Prisma.StringWithAggregatesFilter<"Article"> | string
   imageUrl?: Prisma.StringNullableWithAggregatesFilter<"Article"> | string | null
   count?: Prisma.IntWithAggregatesFilter<"Article"> | number
   published?: Prisma.BoolWithAggregatesFilter<"Article"> | boolean
@@ -348,6 +360,7 @@ export type ArticleCreateInput = {
   title: string
   slug: string
   content: string
+  summary: string
   imageUrl?: string | null
   count?: number
   published?: boolean
@@ -362,6 +375,7 @@ export type ArticleUncheckedCreateInput = {
   title: string
   slug: string
   content: string
+  summary: string
   imageUrl?: string | null
   count?: number
   published?: boolean
@@ -375,6 +389,7 @@ export type ArticleUpdateInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   content?: Prisma.StringFieldUpdateOperationsInput | string
+  summary?: Prisma.StringFieldUpdateOperationsInput | string
   imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   count?: Prisma.IntFieldUpdateOperationsInput | number
   published?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -389,6 +404,7 @@ export type ArticleUncheckedUpdateInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   content?: Prisma.StringFieldUpdateOperationsInput | string
+  summary?: Prisma.StringFieldUpdateOperationsInput | string
   imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   count?: Prisma.IntFieldUpdateOperationsInput | number
   published?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -403,6 +419,7 @@ export type ArticleCreateManyInput = {
   title: string
   slug: string
   content: string
+  summary: string
   imageUrl?: string | null
   count?: number
   published?: boolean
@@ -416,6 +433,7 @@ export type ArticleUpdateManyMutationInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   content?: Prisma.StringFieldUpdateOperationsInput | string
+  summary?: Prisma.StringFieldUpdateOperationsInput | string
   imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   count?: Prisma.IntFieldUpdateOperationsInput | number
   published?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -429,6 +447,7 @@ export type ArticleUncheckedUpdateManyInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   content?: Prisma.StringFieldUpdateOperationsInput | string
+  summary?: Prisma.StringFieldUpdateOperationsInput | string
   imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   count?: Prisma.IntFieldUpdateOperationsInput | number
   published?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -453,6 +472,7 @@ export type ArticleCountOrderByAggregateInput = {
   title?: Prisma.SortOrder
   slug?: Prisma.SortOrder
   content?: Prisma.SortOrder
+  summary?: Prisma.SortOrder
   imageUrl?: Prisma.SortOrder
   count?: Prisma.SortOrder
   published?: Prisma.SortOrder
@@ -473,6 +493,7 @@ export type ArticleMaxOrderByAggregateInput = {
   title?: Prisma.SortOrder
   slug?: Prisma.SortOrder
   content?: Prisma.SortOrder
+  summary?: Prisma.SortOrder
   imageUrl?: Prisma.SortOrder
   count?: Prisma.SortOrder
   published?: Prisma.SortOrder
@@ -487,6 +508,7 @@ export type ArticleMinOrderByAggregateInput = {
   title?: Prisma.SortOrder
   slug?: Prisma.SortOrder
   content?: Prisma.SortOrder
+  summary?: Prisma.SortOrder
   imageUrl?: Prisma.SortOrder
   count?: Prisma.SortOrder
   published?: Prisma.SortOrder
@@ -556,6 +578,7 @@ export type ArticleCreateWithoutAuthorInput = {
   title: string
   slug: string
   content: string
+  summary: string
   imageUrl?: string | null
   count?: number
   published?: boolean
@@ -569,6 +592,7 @@ export type ArticleUncheckedCreateWithoutAuthorInput = {
   title: string
   slug: string
   content: string
+  summary: string
   imageUrl?: string | null
   count?: number
   published?: boolean
@@ -611,6 +635,7 @@ export type ArticleScalarWhereInput = {
   title?: Prisma.StringFilter<"Article"> | string
   slug?: Prisma.StringFilter<"Article"> | string
   content?: Prisma.StringFilter<"Article"> | string
+  summary?: Prisma.StringFilter<"Article"> | string
   imageUrl?: Prisma.StringNullableFilter<"Article"> | string | null
   count?: Prisma.IntFilter<"Article"> | number
   published?: Prisma.BoolFilter<"Article"> | boolean
@@ -625,6 +650,7 @@ export type ArticleCreateManyAuthorInput = {
   title: string
   slug: string
   content: string
+  summary: string
   imageUrl?: string | null
   count?: number
   published?: boolean
@@ -637,6 +663,7 @@ export type ArticleUpdateWithoutAuthorInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   content?: Prisma.StringFieldUpdateOperationsInput | string
+  summary?: Prisma.StringFieldUpdateOperationsInput | string
   imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   count?: Prisma.IntFieldUpdateOperationsInput | number
   published?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -650,6 +677,7 @@ export type ArticleUncheckedUpdateWithoutAuthorInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   content?: Prisma.StringFieldUpdateOperationsInput | string
+  summary?: Prisma.StringFieldUpdateOperationsInput | string
   imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   count?: Prisma.IntFieldUpdateOperationsInput | number
   published?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -663,6 +691,7 @@ export type ArticleUncheckedUpdateManyWithoutAuthorInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   content?: Prisma.StringFieldUpdateOperationsInput | string
+  summary?: Prisma.StringFieldUpdateOperationsInput | string
   imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   count?: Prisma.IntFieldUpdateOperationsInput | number
   published?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -678,6 +707,7 @@ export type ArticleSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   title?: boolean
   slug?: boolean
   content?: boolean
+  summary?: boolean
   imageUrl?: boolean
   count?: boolean
   published?: boolean
@@ -693,6 +723,7 @@ export type ArticleSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exten
   title?: boolean
   slug?: boolean
   content?: boolean
+  summary?: boolean
   imageUrl?: boolean
   count?: boolean
   published?: boolean
@@ -708,6 +739,7 @@ export type ArticleSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exten
   title?: boolean
   slug?: boolean
   content?: boolean
+  summary?: boolean
   imageUrl?: boolean
   count?: boolean
   published?: boolean
@@ -723,6 +755,7 @@ export type ArticleSelectScalar = {
   title?: boolean
   slug?: boolean
   content?: boolean
+  summary?: boolean
   imageUrl?: boolean
   count?: boolean
   published?: boolean
@@ -732,7 +765,7 @@ export type ArticleSelectScalar = {
   newthing?: boolean
 }
 
-export type ArticleOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "title" | "slug" | "content" | "imageUrl" | "count" | "published" | "authorId" | "createdAt" | "updatedAt" | "newthing", ExtArgs["result"]["article"]>
+export type ArticleOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "title" | "slug" | "content" | "summary" | "imageUrl" | "count" | "published" | "authorId" | "createdAt" | "updatedAt" | "newthing", ExtArgs["result"]["article"]>
 export type ArticleInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   author?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
@@ -753,6 +786,7 @@ export type $ArticlePayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     title: string
     slug: string
     content: string
+    summary: string
     imageUrl: string | null
     count: number
     published: boolean
@@ -1188,6 +1222,7 @@ export interface ArticleFieldRefs {
   readonly title: Prisma.FieldRef<"Article", 'String'>
   readonly slug: Prisma.FieldRef<"Article", 'String'>
   readonly content: Prisma.FieldRef<"Article", 'String'>
+  readonly summary: Prisma.FieldRef<"Article", 'String'>
   readonly imageUrl: Prisma.FieldRef<"Article", 'String'>
   readonly count: Prisma.FieldRef<"Article", 'Int'>
   readonly published: Prisma.FieldRef<"Article", 'Boolean'>

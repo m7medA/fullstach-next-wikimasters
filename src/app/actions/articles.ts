@@ -7,10 +7,13 @@ import { PrismaClient } from "../generated/prisma/client";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../api/auth/[...nextauth]/route";
 import { authorizeUserToEditArticle } from "../../../prisma/auth";
+import redis from "@/cache";
+import { summarizeArticle } from "./ai/articles";
 
 export type CreateArticleInput = {
   title: string;
   content: string;
+  summary?: string;
   authorId: string;
   imageUrl?: string;
 };
@@ -19,6 +22,7 @@ export type UpdateArticleInput = {
   title?: string;
   content?: string;
   imageUrl?: string;
+  summary?: string;
 };
 
 const connectionString = `${process.env.DATABASE_URL}`;
@@ -33,15 +37,21 @@ export async function createArticle(data: CreateArticleInput) {
 
   console.log("Article created.", data);
 
+  const summary = await summarizeArticle(data.title || "", data.content || "");
+
   await prisma.article.create({
     data: {
       title: data.title,
       content: data.content,
+      summary,
       slug: `${Date.now()}`,
       published: true,
       authorId: Number(session?.user.id),
+      imageUrl: data.imageUrl ?? undefined,
     },
   });
+
+  redis.del("aerticles:all");
 
   return { success: true, message: "Article created." };
 }
@@ -58,6 +68,8 @@ export async function updateArticle(id: string, data: UpdateArticleInput) {
   if (!(await authorizeUserToEditArticle(session?.user.id, id)))
     throw new Error("❌ Forbidden");
 
+  const summary = await summarizeArticle(data.title || "", data.content || "");
+
   try {
     await prisma.article.update({
       where: {
@@ -66,7 +78,8 @@ export async function updateArticle(id: string, data: UpdateArticleInput) {
       data: {
         title: data.title,
         content: data.content,
-        imageUrl: data.imageUrl,
+        summary,
+        imageUrl: data.imageUrl ?? undefined,
       },
     });
   } catch (error) {
@@ -74,6 +87,8 @@ export async function updateArticle(id: string, data: UpdateArticleInput) {
 
     //send this to observability.
   }
+
+  redis.del("aerticles:all");
 
   return { success: true, message: "Article updated." };
 }

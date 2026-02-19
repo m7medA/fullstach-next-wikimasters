@@ -1,3 +1,4 @@
+import { summarizeArticle } from "@/app/actions/ai/articles";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import WikiArticleViewer from "@/components/wikiArticleViewer";
 import { getArticleById } from "@/lib/data/action";
