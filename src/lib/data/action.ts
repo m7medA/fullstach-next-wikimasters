@@ -8,6 +8,17 @@ const connectionString = `${process.env.DATABASE_URL}`;
 const adapter = new PrismaPg({ connectionString });
 const prisma = new PrismaClient({ adapter });
 
+export type Article = {
+  id: string;
+  title: string;
+  createdAt: string;
+  imageUrl: string | null;
+  summary: string;
+  author: {
+    name?: string;
+  };
+};
+
 export async function getArticles() {
   const cached = await redis.get("articles:all");
   if (cached) {
